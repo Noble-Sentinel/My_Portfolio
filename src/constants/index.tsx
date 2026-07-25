@@ -2,7 +2,6 @@ import {
   SiHtml5, SiCss, SiJavascript, SiReact, SiTypescript,
   SiThreedotjs, SiNextdotjs, SiFirebase, SiTailwindcss, SiWagmi, SiCisco
 } from "react-icons/si";
-// import { FaLinux, FaGithub } from "react-icons/fa";
 import { JSX } from "react";
 
 export interface Project {

@@ -5,11 +5,8 @@ import { usePathname } from "next/navigation";
 import "./navbar.css";
 import { Header } from "../header/header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { ref, getDownloadURL } from "firebase/storage";
-import { storage } from "../../../firebaseConfig";
 import {
   faHome,
-  faCloudDownload,
   faUser,
   faPhoneAlt,
   faCode,
@@ -26,7 +23,6 @@ const navLinks = [
 export function Navbar() {
   const currentPath = usePathname();
   const [navbar, setNavbar] = useState(false);
-  const [pdfUrl, setPdfUrl] = useState("");
   const drawerRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -50,13 +46,6 @@ export function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, [navbar]);
 
-  // Fetch resume URL
-  useEffect(() => {
-    const fileRef = ref(storage, "/AbdulRahmon_Olaegbe_Resume.pdf");
-    getDownloadURL(fileRef)
-      .then((url) => setPdfUrl(url))
-      .catch((err) => console.error("Error fetching PDF URL:", err));
-  }, []);
 
   return (
     <div>
@@ -99,18 +88,6 @@ export function Navbar() {
               );
             })}
           </ul>
-
-          {pdfUrl && (
-            <Link
-              href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-drawer__resume"
-            >
-              <FontAwesomeIcon icon={faCloudDownload} />
-              <span>Resume</span>
-            </Link>
-          )}
         </div>
       </nav>
 
@@ -144,19 +121,6 @@ export function Navbar() {
               );
             })}
           </ul>
-
-          {pdfUrl && (
-            <Link
-              href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="nav-rail__resume"
-              aria-label="Download resume"
-              title="Download resume"
-            >
-              <FontAwesomeIcon icon={faCloudDownload} />
-            </Link>
-          )}
         </div>
       </nav>
     </div>
