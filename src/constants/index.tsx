@@ -1,6 +1,6 @@
 import {
   SiHtml5, SiCss, SiJavascript, SiReact, SiTypescript,
-  SiThreedotjs, SiNextdotjs, SiFirebase, SiTailwindcss, SiWagmi,
+  SiThreedotjs, SiNextdotjs, SiFirebase, SiTailwindcss, SiWagmi, SiCisco
 } from "react-icons/si";
 // import { FaLinux, FaGithub } from "react-icons/fa";
 import { JSX } from "react";
@@ -43,10 +43,10 @@ const CATEGORIES: Category[] = [
         liveUrl: "https://oa-3dportfolio.netlify.app",
         githubUrl: "https://github.com/Youngtechie/3d-portfolio",
         techStack: [
-          { icon: <SiReact />,      name: "React" },
+          { icon: <SiReact />, name: "React" },
           { icon: <SiTypescript />, name: "TypeScript" },
           { icon: <SiThreedotjs />, name: "Three.js" },
-          { icon: <SiCss />,       name: "CSS3" },
+          { icon: <SiCss />, name: "CSS3" },
         ],
         isOpenSource: false,
         status: "live",
@@ -60,10 +60,10 @@ const CATEGORIES: Category[] = [
         liveUrl: "https://rebuses.netlify.app/",
         githubUrl: "https://github.com/Youngtechie/Rebus-Puzzles_webpage",
         techStack: [
-          { icon: <SiHtml5 />,      name: "HTML5" },
-          { icon: <SiCss />,       name: "CSS3" },
+          { icon: <SiHtml5 />, name: "HTML5" },
+          { icon: <SiCss />, name: "CSS3" },
           { icon: <SiJavascript />, name: "JavaScript" },
-          { icon: <SiReact />,      name: "React" },
+          { icon: <SiReact />, name: "React" },
         ],
         isOpenSource: true,
         status: "live",
@@ -93,7 +93,7 @@ const CATEGORIES: Category[] = [
     accentColor: "#7F77DD",
     accentBg: "rgba(127,119,221,0.1)",
     projects: [
-            {
+      {
         id: "votex",
         title: "VoteX",
         description: "Secure, transparent decentralized voting platform for communities worldwide.",
@@ -101,11 +101,11 @@ const CATEGORIES: Category[] = [
         liveUrl: "https://votex-platform.vercel.app/",
         githubUrl: "https://github.com/Youngtechie/votex",
         techStack: [
-          { icon: <SiNextdotjs />,    name: "Next.js" },
-          { icon: <SiTypescript />,   name: "TypeScript" },
-          { icon: <SiTailwindcss />,  name: "Tailwind" },
-          { icon: <SiFirebase />,     name: "Firebase" },
-          { icon: <SiWagmi />,        name: "Wagmi" },
+          { icon: <SiNextdotjs />, name: "Next.js" },
+          { icon: <SiTypescript />, name: "TypeScript" },
+          { icon: <SiTailwindcss />, name: "Tailwind" },
+          { icon: <SiFirebase />, name: "Firebase" },
+          { icon: <SiWagmi />, name: "Wagmi" },
         ],
         isOpenSource: false,
         status: "live",
@@ -135,6 +135,20 @@ const CATEGORIES: Category[] = [
       //   status: "live",
       //   year: 2025,
       // },
+      {
+        id: "120-pc-network-simulation",
+        title: "Enterprise Network Infrastructure Simulation",
+        description: "Designed and simulated a large-scale enterprise network in Cisco Packet Tracer featuring 10 routers, multilayer switching, and 30 VLANs. Implemented structured IP addressing with /30 point-to-point links, subnetted client networks, centralized DHCP, and RIP-based dynamic routing to ensure seamless inter-VLAN and inter-network communication across 120 PCs.",
+        image: "/First.png",
+        liveUrl: "",
+        githubUrl: "",
+        techStack: [
+          { icon: <SiCisco />, name: "Cisco Packet Tracer" },
+        ],
+        isOpenSource: false,
+        status: "live",
+        year: 2025,
+      },
     ],
   },
   {
