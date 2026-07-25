@@ -139,7 +139,7 @@ const CATEGORIES: Category[] = [
         id: "120-pc-network-simulation",
         title: "Enterprise Network Infrastructure Simulation",
         description: "Designed and simulated a large-scale enterprise network in Cisco Packet Tracer featuring 10 routers, multilayer switching, and 30 VLANs. Implemented structured IP addressing with /30 point-to-point links, subnetted client networks, centralized DHCP, and RIP-based dynamic routing to ensure seamless inter-VLAN and inter-network communication across 120 PCs.",
-        image: "/First.png",
+        image: "/1-networking.png",
         liveUrl: "",
         githubUrl: "",
         techStack: [
