@@ -17,7 +17,7 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
       <div className="header-content">
         <Image
           src="/logo.png"
-          alt="Olaegbe's Logo"
+          alt="Olaegbe Abdul-Rahmon logo"
           width={50}
           height={50}
           className="logo"

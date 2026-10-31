@@ -28,12 +28,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Olaegbe Abdul-Rahmon | Developer Portfolio",
   description:
-    "Discover the portfolio of Olaegbe Abdul-Rahmon, a creative web developer specializing in React.js, TypeScript, Three.js, and cutting-edge web technologies. Explore my projects and skills to see how I bring ideas to life!",
+    "Discover Olaegbe Abdul-Rahmon, also known as Noble Sentinel — a full-stack developer and cybersecurity professional.",
   keywords: [
     "Olaegbe Abdul-Rahmon",
-    "Abdul-Rahmon O.",
-    "Olaegbe Abdul-Rahmon Pelumi",
-    "Nobel Sentinel",
+    "Noble Sentinel",
+    "@Noble_Sentinel_",
     "Developer Portfolio",
     "React Developer",
     "Cybersecurity",
@@ -42,30 +41,23 @@ export const metadata: Metadata = {
     "Three.js Developer",
     "FullStack Developer",
     "Certified Ethical Hacker",
-    "Certified Network Defender",
-    "Certified Front-End Developer",
-    "Certified FullStack Developer",
+    "CompTIA Network+",
     "WEB3 Developer",
     "3D Web Developer",
     "Web Development Portfolio",
-    "Creative Developer",
-    "Web Technologies",
-    "Interactive Web Experiences",
-    "Olaegbe Portfolio",
-    "Abdul-Rahmon Portfolio",
-    "Nobel Sentinel Portfolio",
+    "Noble Sentinel Portfolio",
   ],
   authors: [
     {
-      name: "Olaegbe Abdul-Rahmon P.",
+      name: "Olaegbe Abdul-Rahmon",
       url: "https://olaegbe-portfolio.vercel.app/",
     },
   ],
   robots: "index, follow",
   openGraph: {
-    title: "Abdul-Rahmon O. | Developer Portfolio",
+    title: "Olaegbe Abdul-Rahmon | Developer Portfolio",
     description:
-      "Discover the portfolio of Olaegbe Abdul-Rahmon, a creative web developer specializing in React.js, TypeScript, Three.js, and cutting-edge web technologies.",
+      "Discover Olaegbe Abdul-Rahmon, also known as Noble Sentinel — a full-stack developer and cybersecurity professional.",
     url: "https://olaegbe-portfolio.vercel.app/",
     type: "website",
     images: [
@@ -79,9 +71,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abdul-Rahmon O. | Developer Portfolio",
+    creator: "@Noble_Sentinel_",
+    site: "@Noble_Sentinel_",
+    title: "Olaegbe Abdul-Rahmon | Developer Portfolio",
     description:
-      "Discover the portfolio of Olaegbe Abdul-Rahmon, a creative web developer specializing in React.js, TypeScript, Three.js, and cutting-edge web technologies.",
+      "Discover Olaegbe Abdul-Rahmon, also known as Noble Sentinel — a full-stack developer and cybersecurity professional.",
     images: [
       {
         url: "/og-image.png",

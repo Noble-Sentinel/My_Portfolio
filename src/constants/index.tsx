@@ -40,7 +40,7 @@ const CATEGORIES: Category[] = [
         description: "Interactive personal portfolio showcasing projects in a dynamic 3D environment.",
         image: "/3dport.png",
         liveUrl: "https://oa-3dportfolio.netlify.app",
-        githubUrl: "https://github.com/Youngtechie/3d-portfolio",
+        githubUrl: "https://github.com/Noble-Sentinel/3d-portfolio",
         techStack: [
           { icon: <SiReact />, name: "React" },
           { icon: <SiTypescript />, name: "TypeScript" },
@@ -57,7 +57,7 @@ const CATEGORIES: Category[] = [
         description: "Engaging puzzle game blending logic and lateral thinking with word and visual riddles.",
         image: "/rebus.png",
         liveUrl: "https://rebuses.netlify.app/",
-        githubUrl: "https://github.com/Youngtechie/Rebus-Puzzles_webpage",
+        githubUrl: "https://github.com/Noble-Sentinel/Rebus-Puzzles_webpage",
         techStack: [
           { icon: <SiHtml5 />, name: "HTML5" },
           { icon: <SiCss />, name: "CSS3" },
@@ -98,7 +98,7 @@ const CATEGORIES: Category[] = [
         description: "Secure, transparent decentralized voting platform for communities worldwide.",
         image: "/votexImg.png",
         liveUrl: "https://votex-platform.vercel.app/",
-        githubUrl: "https://github.com/Youngtechie/votex",
+        githubUrl: "https://github.com/Noble-Sentinel/votex",
         techStack: [
           { icon: <SiNextdotjs />, name: "Next.js" },
           { icon: <SiTypescript />, name: "TypeScript" },

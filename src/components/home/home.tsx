@@ -1,6 +1,3 @@
-"use client";
-import { Typewriter } from "react-simple-typewriter";
-import { useState, useEffect } from "react";
 import "./home.css";
 import {
   faShieldHalved,
@@ -8,22 +5,15 @@ import {
   faMicrochip,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CERTIFICATIONS } from "../../constants/certifications";
 
 interface HomeSlideProps {
   view: boolean;
 }
 
-const CERTS = ["CompTIA A+", "CompTIA Security+", "CEH", "CompTIA N+", "Digital Literacy"];
-const ROLES = ["Certified Fullstack Developer", "Certified Ethical Hacker", "Certified Cybersecurity Analyst"];
+const ROLES = ["Full-Stack Developer", "Ethical Hacker", "Security & Networking"];
 
 export default function HomeSide({ view }: HomeSlideProps) {
-  const [showTitle, setShowTitle] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowTitle(true), 2200);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div
       className={`${
@@ -50,32 +40,18 @@ export default function HomeSide({ view }: HomeSlideProps) {
       <div className="flex flex-col gap-2.5 z-20 relative text-center items-center w-full px-4">
         <div className="animated-line" />
 
-        <h1 className="hs-name" style={{ minHeight: "2em" }}>
-          <Typewriter
-            words={["ABDUL-RAHMON OLAEGBE"]}
-            typeSpeed={60}
-            deleteSpeed={40}
-            delaySpeed={500}
-          />
+        <h1 className="hs-name">
+          Olaegbe Abdul-Rahmon
         </h1>
 
-        <h2 className="hs-subtitle text-[#ffcc00]" style={{ minHeight: "1.4em" }}>
-          {showTitle && (
-            <Typewriter
-              words={["> FULLSTACK DEV & SECURITY ENG"]}
-              typeSpeed={50}
-              deleteSpeed={30}
-              delaySpeed={5000}
-              loop
-              cursor
-            />
-          )}
+        <h2 className="hs-subtitle text-[#ffcc00]">
+          &gt; FULLSTACK DEV &amp; SECURITY ENG
         </h2>
 
         {/* Cert badges */}
         <div className="hs-certs">
-          {CERTS.map((c) => (
-            <span key={c} className="hs-cert">{c}</span>
+          {CERTIFICATIONS.map((certification) => (
+            <span key={certification.id} className="hs-cert">{certification.badge}</span>
           ))}
         </div>
 
@@ -93,17 +69,8 @@ export default function HomeSide({ view }: HomeSlideProps) {
       </div>
 
       {/* Cycling tagline */}
-      <h3 className="hs-tagline z-50" style={{ minHeight: "2em" }}>
-        <Typewriter
-          words={["Innovator", "Problem Solver", "Creative Thinker"]}
-          typeSpeed={100}
-          deleteSpeed={30}
-          delaySpeed={1000}
-          loop
-          cursor
-          cursorColor="#fff"
-          cursorStyle="|"
-        />
+      <h3 className="hs-tagline z-50">
+        Innovator · Problem Solver · Creative Thinker
       </h3>
 
       {/* Status indicator */}

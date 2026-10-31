@@ -1,12 +1,9 @@
-"use client";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faLink } from "@fortawesome/free-solid-svg-icons";
 import {FaGithub} from "react-icons/fa";
-import CATEGORIES, { Project } from "../../constants";
+import CATEGORIES, { type Project } from "../../constants";
 
 const STATUS_STYLE: Record<string, { label: string; cls: string }> = {
   live: { label: "Live", cls: "bg-[rgba(76,223,138,0.1)] text-[#4cdf8a] border-[rgba(76,223,138,0.25)]" },
@@ -20,7 +17,13 @@ function ProjectCard({ p }: { p: Project }) {
     <div className="min-w-[192px] max-w-[192px] bg-[#111211] border border-[#2a2b2a] rounded-xl overflow-hidden flex flex-col flex-shrink-0">
       <div className="relative w-full h-[88px] bg-[#1e1f1e] border-b border-[#2a2b2a]">
         {p.image ? (
-          <Image src={p.image} alt={p.title} layout="fill" objectFit="cover" />
+          <Image
+            src={p.image}
+            alt={`${p.title} project preview`}
+            fill
+            sizes="192px"
+            className="object-cover"
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center text-white/20 text-[11px]">
             No preview
@@ -50,12 +53,14 @@ function ProjectCard({ p }: { p: Project }) {
         <div className="ml-auto flex gap-2">
           {p.githubUrl && (
             <Link href={p.githubUrl} target="_blank" rel="noopener noreferrer"
+              aria-label={`View ${p.title} on GitHub`}
               className="text-white/35 hover:text-[#ffcc00] transition-colors text-sm">
               <FaGithub  />
             </Link>
           )}
           {p.liveUrl && (
             <Link href={p.liveUrl} target="_blank" rel="noopener noreferrer"
+              aria-label={`Visit ${p.title}`}
               className="text-white/35 hover:text-[#ffcc00] transition-colors text-sm">
               <FontAwesomeIcon icon={faLink} />
             </Link>
@@ -67,15 +72,11 @@ function ProjectCard({ p }: { p: Project }) {
 }
 
 function CategorySection({ cat, defaultOpen }: { cat: typeof CATEGORIES[0]; defaultOpen: boolean }) {
-  const [open, setOpen] = useState(defaultOpen);
   const count = cat.projects.length;
 
   return (
-    <div className="border border-[#2a2b2a] rounded-xl overflow-hidden">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center gap-3 px-4 py-3 bg-[#1a1b1a] hover:bg-[#1e1f1e] transition-colors text-left"
-      >
+    <details open={defaultOpen} className="border border-[#2a2b2a] rounded-xl overflow-hidden">
+      <summary className="flex cursor-pointer list-none items-center gap-3 px-4 py-3 bg-[#1a1b1a] hover:bg-[#1e1f1e] transition-colors text-left">
         <div
           className="w-8 h-8 rounded-lg flex items-center justify-center text-[15px] flex-shrink-0"
           style={{ background: cat.accentBg, color: cat.accentColor }}
@@ -90,36 +91,23 @@ function CategorySection({ cat, defaultOpen }: { cat: typeof CATEGORIES[0]; defa
         </div>
         <FontAwesomeIcon
           icon={faChevronDown}
-          className={`text-white/30 text-sm transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          className="text-white/30 text-sm"
         />
-      </button>
+      </summary>
 
-      <AnimatePresence initial={false}>
-        {open && (
-          <motion.div
-            key="body"
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            style={{ overflow: "hidden" }}
-          >
-            {count > 0 ? (
-              <div className="flex gap-2.5 px-4 py-3 overflow-x-auto scrollbar-thin scrollbar-track-[#151615] scrollbar-thumb-[#2a2b2a]">
-                {cat.projects.map((p) => (
-                  <ProjectCard key={p.id} p={p} />
-                ))}
-              </div>
-            ) : (
-              <div className="flex flex-col items-center gap-2 py-5 text-white/20 text-[12px] border-t border-[#2a2b2a]">
-                <i className={`ti ${cat.iconClass}`} aria-hidden="true" style={{ fontSize: 22 }} />
-                <span>{cat.label} projects coming soon</span>
-              </div>
-            )}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+      {count > 0 ? (
+        <div className="flex gap-2.5 px-4 py-3 overflow-x-auto scrollbar-thin scrollbar-track-[#151615] scrollbar-thumb-[#2a2b2a]">
+          {cat.projects.map((p) => (
+            <ProjectCard key={p.id} p={p} />
+          ))}
+        </div>
+      ) : (
+        <div className="flex flex-col items-center gap-2 py-5 text-white/20 text-[12px] border-t border-[#2a2b2a]">
+          <i className={`ti ${cat.iconClass}`} aria-hidden="true" style={{ fontSize: 22 }} />
+          <span>{cat.label} projects coming soon</span>
+        </div>
+      )}
+    </details>
   );
 }
 

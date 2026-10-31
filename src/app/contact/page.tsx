@@ -2,7 +2,13 @@
 import { FormEvent, useRef, useState } from "react";
 import emailjs from "emailjs-com";
 import Link from "next/link";
-import { FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaWhatsapp,
+} from "react-icons/fa";
 
 type Status = { type: "success" | "error"; message: string } | null;
 
@@ -46,17 +52,19 @@ const ContactPage = () => {
           <p className="text-sm text-[#888] mt-1">I&#39;ll get back to you as soon as possible.</p>
 
           {/* Social links */}
-          <div className="flex gap-3 mt-5 pb-5 border-b border-[#2a2b2a]">
+          <div className="flex flex-wrap gap-3 mt-5 pb-5 border-b border-[#2a2b2a]">
             {[
-              { href: "https://www.linkedin.com/in/abdul-rahmon-ibn-qozeem-7a128b237", icon: <FaLinkedin />, label: "LinkedIn" },
-              { href: "https://x.com/Noble_Sentinel_", icon: <FaTwitter />, label: "X" },
-              { href: "https://wa.me/+2349020674910", icon: <FaWhatsapp />, label: "WhatsApp" },
-            ].map(({ href, icon, label }) => (
+              { href: "https://www.linkedin.com/in/abdul-rahmon-ibn-qozeem-7a128b237", icon: <FaLinkedin />, label: "LinkedIn", external: true },
+              { href: "https://x.com/Noble_Sentinel_", icon: <FaTwitter />, label: "X (@Noble_Sentinel_)", external: true },
+              { href: "https://wa.me/+2349020674910", icon: <FaWhatsapp />, label: "WhatsApp", external: true },
+              { href: "https://github.com/Noble-Sentinel/", icon: <FaGithub />, label: "GitHub", external: true },
+              { href: "mailto:olaegbeolamilekan1@gmail.com", icon: <FaEnvelope />, label: "olaegbeolamilekan1@gmail.com", external: false },
+            ].map(({ href, icon, label, external }) => (
               <Link
                 key={label}
                 href={href}
-                target="_blank"
-                rel="noopener noreferrer"
+                target={external ? "_blank" : undefined}
+                rel={external ? "noopener noreferrer" : undefined}
                 className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#2e2f2e] text-[#aaa] text-sm hover:border-[#ffcc00] hover:text-[#ffcc00] transition-colors"
               >
                 {icon}{label}
